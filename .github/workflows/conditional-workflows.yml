@@ -8,7 +8,7 @@ on:
 jobs:
   conditional-job:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.review_count >= 2 && github.ref == 'refs/heads/main'
+    if: github.event.pull_request.review_count >= 1 && github.ref == 'refs/heads/main'
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
