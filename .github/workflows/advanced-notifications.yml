@@ -16,12 +16,15 @@ jobs:
         run: npm install
 
       - name: Run tests
+        id: run-tests
         run: npm run test
         continue-on-error: true
 
       - name: Send Slack notification if tests fail
-        if: failure()
+        if: always()
         run: |
-          curl -X POST -H 'Content-type: application/json' \
-          --data '{"text":"🚨 Los tests fallaron en el PR #${{ github.event.pull_request.number }}! Revisa el log aquí: ${{ github.event.pull_request.html_url }}"}' \
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+          if [ "${{ steps.run-tests.outcome }}" == "failure" ]; then
+            curl -X POST -H 'Content-type: application/json' \
+            --data '{"text":"🚨 Los tests fallaron en el PR #${{ github.event.pull_request.number }}! Revisa el log aquí: ${{ github.event.pull_request.html_url }}"}' \
+            ${{ secrets.SLACK_WEBHOOK_URL }}
+          fi
