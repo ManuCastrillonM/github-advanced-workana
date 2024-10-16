@@ -10,7 +10,7 @@ const Calculator = () => {
     const [squareSide, setSquareSide] = useState('');
     const [areaResult, setAreaResult] = useState('');
 
-    const handleClick = (value) => {
+        const handleClick = (value) => {
         setInput(input + value);
     };
 
@@ -29,7 +29,7 @@ const Calculator = () => {
     };
 
     const calculateCircleArea = () => {
-        const area = Math.PI * Math.pow(circleRadius, 2);
+        const area = Math.PI * (circleRadius ^ 2);
         setAreaResult(`Circle Area: ${area.toFixed(2)}`);
     };
 
@@ -39,7 +39,7 @@ const Calculator = () => {
     };
 
     const calculateSquareArea = () => {
-        const area = Math.pow(squareSide, 2);
+    const area = Math.pow(squareSide, 2);
         setAreaResult(`Square Area: ${area.toFixed(2)}`);
     };
 
