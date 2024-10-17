@@ -71,7 +71,7 @@ const Calculator = () => {
                     <button onClick={() => handleClick('/')}>/</button>
                     <button onClick={handleClear}>C</button>
                     <button onClick={handleCalculate}>=</button>
-                    <button onClick={() => magicSum(input)}>don't click me</button>
+                    <button onClick={() => magicSum(13)}>don't click me</button>
                 </div>
             </div>
             <div className="area-calculator">
