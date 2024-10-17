@@ -20,15 +20,20 @@ jobs:
           git config --global user.name "manucastrillonm"
           git config --global user.email "10585946+ManuCastrillonM@users.noreply.github.com"
 
-      - name: Bump version and create changelog
-        id: versioning
+      - name: Determine version
+        id: determine_version
         run: |
-          npm install -g standard-version
-          standard-version --release-as auto
-          echo "VERSION=$(cat package.json | jq -r .version)" >> $GITHUB_ENV
+          VERSION=$(node -p "require('./package.json').version")
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Create Git Tag
-        run: git tag v${{ env.VERSION }}
+        run: |
+          if git rev-parse "v${{ env.VERSION }}" >/dev/null 2>&1; then
+            echo "Tag v${{ env.VERSION }} already exists"
+          else
+            git tag v${{ env.VERSION }}
+            git push origin v${{ env.VERSION }}
+          fi
 
       - name: Push changes and tags
         run: |
