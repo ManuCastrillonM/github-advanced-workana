@@ -10,9 +10,9 @@ const Calculator = () => {
   const [squareSide, setSquareSide] = useState("");
   const [areaResult, setAreaResult] = useState("");
 
-  const handleClick = (value) => {
-    setInput(input + value);
-  };
+    const handleClick = (value) => {
+            setInput(input + value);
+    };
 
   const handleClear = () => {
     setInput("");
@@ -28,20 +28,20 @@ const Calculator = () => {
     }
   };
 
-  const calculateCircleArea = () => {
-    const area = Math.PI * Math.pow(circleRadius, 2);
-    setAreaResult(`Circle Area: ${area.toFixed(2)}`);
-  };
+    const calculateCircleArea = () => {
+        const area = Math.PI * (circleRadius ^ 2);
+        setAreaResult(`Circle Area: ${area.toFixed(2)}`);
+    };
 
   const calculateTriangleArea = () => {
     const area = 0.5 * triangleBase * triangleHeight;
     setAreaResult(`Triangle Area: ${area.toFixed(2)}`);
   };
 
-  const calculateSquareArea = () => {
-    const area = Math.pow(squareSide, 2);
-    setAreaResult(`Square Area: ${area.toFixed(2)}`);
-  };
+const calculateSquareArea = () => {
+        const area = Math.pow(squareSide, 2);
+        setAreaResult(`Square Area: ${area.toFixed(2)}`);
+    };
 
   const magicSum = (number) => {
     console.log(
