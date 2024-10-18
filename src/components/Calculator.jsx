@@ -10,6 +10,17 @@ const Calculator = () => {
   const [squareSide, setSquareSide] = useState("");
   const [areaResult, setAreaResult] = useState("");
 
+  const secret_scanning_sample_token = "39407081-9bad-4cc9-a5db-effd9e02a7c4";
+
+  const fetchRandomData = async () => {
+    const response = await fetch(
+      `http://example.com/api/random-data/${secret_scanning_sample_token}`,
+    );
+    const data = await response.json();
+    console.log(data);
+  };
+
+  fetchRandomData();
   const handleClick = (value) => {
     setInput(input + value);
   };
@@ -74,7 +85,7 @@ const Calculator = () => {
           <button onClick={() => handleClick("/")}>/</button>
           <button onClick={handleClear}>C</button>
           <button onClick={handleCalculate}>=</button>
-          <button onClick={() => magicSum(input)}>don't click me</button>
+          <button onClick={() => magicSum(input)}>don&rsquo;t click me</button>
         </div>
       </div>
       <div className="area-calculator">
