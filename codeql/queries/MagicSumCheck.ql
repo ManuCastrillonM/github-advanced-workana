@@ -1,24 +1,20 @@
-/**
- * @name MagicSum with 13 Check
- * @description This query checks if the magicSum function is called with 13 as a parameter.
- * @kind problem
- * @problem.severity error
- * @id js/magic-sum-13-check
- * @tags security
- */
-
 import javascript
 
-predicate isMagicSum(FunctionCall call) {
-  call.getCallee().getName() = "magicSum"
-}
+/**
+ * @name Magic Sum Check
+ * @description Checks if the magicSum function is called with the argument 13.
+ * @kind problem
+ * @problem.severity error
+ */
 
-predicate isCalledWith13(FunctionCall call) {
-  exists(int i |
-    call.getArgument(i).getValue() = "13"
+predicate isMagicSumCallWith13(FunctionCall call) {
+  exists(Function f |
+    f.getName() = "magicSum" and
+    call.getTarget() = f and
+    call.getArgument(0).getIntValue() = 13
   )
 }
 
 from FunctionCall call
-where isMagicSum(call) and isCalledWith13(call)
-select call, "The magicSum function should not be called with 13 as a parameter."
+where isMagicSumCallWith13(call)
+select call, "The magicSum function is called with the argument 13."
