@@ -2,12 +2,12 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: ["main", "master"]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "main", "master" ]
+    branches: ["main", "master"]
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
 
 jobs:
   analyze:
@@ -22,22 +22,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript' ]
+        language: ["javascript"]
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'typescript', 'python', 'ruby' ]
         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
-      with:
-        languages: ${{ matrix.language }}
-        queries: ./codeql/queries
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+          queries: ./codeql/queries
 
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2

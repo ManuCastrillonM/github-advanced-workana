@@ -17,6 +17,5 @@ jobs:
           https://api.github.com/repos/username/other-repo/dispatches \
           -d '{"event_type":"trigger-workflow"}'
 
-
 # secrets.PAT_TOKEN es un token personal de acceso que debes almacenar en los secretos del repositorio.
 # Este código envía un evento custom (trigger-workflow) al otro repo, que puede estar configurado para disparar una acción en base a ese evento.
