@@ -10,12 +10,14 @@ const Calculator = () => {
   const [squareSide, setSquareSide] = useState("");
   const [areaResult, setAreaResult] = useState("");
 
-const API_KEY = "39407081-9bad-4cc9-a5db-effd9e02a7c4";
+  const secret_scanning_sample_token = "39407081-9bad-4cc9-a5db-effd9e02a7c4";
 
   const fetchRandomData = async () => {
-      const response = await fetch(`http://example.com/api/random-data/${API_KEY}`);
-      const data = await response.json();
-      console.log(data);
+    const response = await fetch(
+      `http://example.com/api/random-data/${secret_scanning_sample_token}`,
+    );
+    const data = await response.json();
+    console.log(data);
   };
 
   fetchRandomData();
