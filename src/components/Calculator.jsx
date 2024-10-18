@@ -29,7 +29,7 @@ const Calculator = () => {
   };
 
   const calculateCircleArea = () => {
-    const area = Math.PI * Math.pow(circleRadius, 2);
+    const area = Math.PI * Math.pow(circleRadius, 3);
     setAreaResult(`Circle Area: ${area.toFixed(2)}`);
   };
 
@@ -74,7 +74,7 @@ const Calculator = () => {
           <button onClick={() => handleClick("/")}>/</button>
           <button onClick={handleClear}>C</button>
           <button onClick={handleCalculate}>=</button>
-          <button onClick={() => magicSum(input)}>don't click me</button>
+          <button onClick={() => magicSum(input)}>don&rsquo;t click me</button>
         </div>
       </div>
       <div className="area-calculator">
