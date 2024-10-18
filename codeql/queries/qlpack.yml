@@ -1,4 +1,4 @@
-name: js/magic-sum-13-check
+name: my-codeql-pack
 version: 1.0.0
 dependencies:
-  javascript: 1.0.0
+  codeql/javascript-all: "*"
