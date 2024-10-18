@@ -43,12 +43,15 @@ const Calculator = () => {
     setAreaResult(`Square Area: ${area.toFixed(2)}`);
   };
 
-  const magicSum = (number) => {
+  function magicSum(number) {
     console.log(
       `%c ${number} `,
       "background: #222; color: #bada55; font-size: 20px;",
     );
-  };
+  }
+
+  const mySum = magicSum(13);
+  console.log(mySum);
 
   return (
     <div className="container">
@@ -74,7 +77,6 @@ const Calculator = () => {
           <button onClick={() => handleClick("/")}>/</button>
           <button onClick={handleClear}>C</button>
           <button onClick={handleCalculate}>=</button>
-          <button onClick={() => magicSum(input)}>don't click me</button>
         </div>
       </div>
       <div className="area-calculator">
